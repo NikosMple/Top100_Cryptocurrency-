@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Crypto Prices</title>
+</head>
+<body>
+    <h1>Top 100 Cryptocurrencies</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Name</th>
+                <th>Symbol</th>
+                <th>Price (USD)</th>
+                <th>Change (24h)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% const cryptoData = JSON.parse(content); %>
+            <% cryptoData.data.forEach(crypto => { %>
+                <tr>
+                    <td><%= countData.rank %></td>
+                    <td><%= crypto.name %></td>
+                    <td><%= crypto.symbol %></td>
+                    <td>$<%= crypto.quote.USD.price.toFixed(2) %></td>
+                    <td><%= crypto.quote.USD.percent_change_24h.toFixed(2) %>%</td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</body>
+</html>
+
+
